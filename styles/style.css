@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    text-align: center;
+    margin: auto;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td{
+  padding: 5px;
+  text-align: left;
+}
+a{
+  text-decoration: none !important;
+}
+
+.my-item{
+  text-align: right;
+}

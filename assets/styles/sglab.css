@@ -1,0 +1,78 @@
+/* .section
+{
+    color: red;
+    background: white;
+    text-align: justify;
+    font-size:  13px;
+}
+
+
+.hot {
+  background: #A00000;
+  margin-bottom: 10px;
+}
+.section a 
+{
+  text-decoration: none;
+}
+.section table
+{
+  border:0;
+}
+
+.section .cat{
+  color: black;
+  font-weight: bold;
+  opacity: 0.6;
+  font-size:  10px;
+  float: left;
+  text-align: left;
+  display: block;
+  margin-right: 5%;
+}
+
+.section img
+{
+  top :0px;
+  max-width:120px;
+  
+}
+
+.hot {
+  background: #A00000;
+}
+
+
+.hot img
+{
+  max-width:100%;
+}
+.section hr {
+  display: block;
+  margin-left: 10px;
+  margin-right: 20px;
+  border-style: inset;
+  border-width: 0.5px;
+  border-color: #DDD;
+}
+
+.section input {
+  width: 200px;
+  size: 20;
+  border: 1px solid #ccc;
+}
+
+
+.section .dudoan tr {
+  height: 30px;
+}
+
+.section .save {
+  background-color: #4CAF50;
+  color: white;
+  padding: 6px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+} */

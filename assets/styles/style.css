@@ -1,0 +1,55 @@
+body {
+  font-family: 'Lato', sans-serif;
+  line-height: 1.42857143;
+  font-size: 14px;
+  color: #6b7381;
+  background: #f2f2f2;
+  padding-top: 70px;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    text-align: center;
+    margin: auto;
+}
+
+th, td{
+  /* padding: 5px; */
+  text-align: left;
+}
+a{
+  text-decoration: none !important;
+}
+
+.my-item-price{
+  text-align: right;
+  vertical-align: middle !important;
+  font-size: 16px;
+}
+
+.my-item-name{
+  font-weight: bold;
+
+}
+
+.my-thead th{
+  text-align: center;
+}
+
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
+
+.table > thead > tr > th{
+  text-align: center;
+  vertical-align: middle;
+}
+
+.image-detail{
+  height: 100%;
+  background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}

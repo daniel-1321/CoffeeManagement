@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <script th:src="@{/jslib/vue.js}"></script>
+    <script th:src="@{/jslib/vue-resource.min.js}"></script>
+    <script th:src="@{/jslib/axios.min.js}"></script>
+    <script th:src="@{/jslib/ase.js}"></script>
+</head>
+<body>
+<h1>USER MANAGER</h1>
+<div id="app">
+    <table style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th>DisplayName</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+        <tr v-for="user in listUser" >
+            <td>{{user.id}}</td>
+            <td>{{user.displayName}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td>
+                <button @click="fetchData(user.id)">Edit User</button>
+                <button id="btnDel" :value="user.id">Delete User</button>
+            </td>
+        </tr>
+        <tr>
+            <a th:href="@{/create-user}" >Add new User</a>
+        </tr>
+    </table>
+    <br/>
+    <form>
+        <table border="0" style="text-align: center;">
+            <tr>
+                <td>Id</td>
+                <td>{{info.id}}</td>
+            </tr>
+            <tr>
+                <th>DisplayName</th>
+                <td><input type="text" v-model="info.displayName" required/></td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td><input type="text" v-model="info.username" readonly/></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><input type="text" v-model="info.email" required/></td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td><input type="text" v-model="info.phone" required/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button @click="updateData(info.id)" id="btnUpdate" :value="info.id" >Update User</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<script th:src="@{/js/index.js}"></script>
+<script th:src="@{http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js}"></script>
+<script>
+    $(document).on("click","#btnUpdate",function() {
+        var userId = $(this).val();
+        var workingObject = $(this);
+        $.ajax({
+          type : "PUT",
+          url : "http://localhost:8080/api/users/"+userId,
+          data: JSON.stringify(json),
+          dataType : 'json',
+          success: function(resultMsg){
+            alert("User id: "+ userId +" updated");
+          },
+          error : function(e) {
+            alert("ERROR: ", e);
+            console.log("ERROR: ", e);
+          }
+        });
+  });
+
+    $(document).on("click","#btnDel",function() {
+        var userId = $(this).val();
+        var workingObject = $(this);
+        $.ajax({
+          type : "DELETE",
+          url : "http://localhost:8080/api/users/" + userId,
+          success: function(resultMsg){
+            alert("User id: "+ userId +" deleted");
+            workingObject.closest("tr").remove();
+          },
+          error : function(e) {
+            alert("ERROR: ", e);
+            console.log("ERROR: ", e);
+          }
+        });
+  });
+
+
+</script>
+
+</body>
+</html>
